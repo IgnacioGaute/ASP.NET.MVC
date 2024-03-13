@@ -1,0 +1,31 @@
+﻿@model ASP.NET.Models.Alumno
+
+@{
+
+    ViewData["Title"] = "Detalle Alumno";
+}
+
+<h1 class="text-center">Alumnos</h1>
+
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"<strong>Detalle Alumno</strong></h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Nombre: </strong>@Html.DisplayFor(m => m.Nombres) </li>
+                    <li class="list-group-item"><strong>Apellido: </strong>@Html.DisplayFor(m => m.Apellidos) </li>
+                    <li class="list-group-item"><strong>Edad: </strong>@Html.DisplayFor(m => m.Edad) </li>
+                    <li class="list-group-item"><strong>Sexo: </strong>@Html.DisplayFor(m => m.Sexo) </li>
+                    <li class="list-group-item"><strong>Fecha de Registro: </strong>@Html.DisplayFor(m => m.FechaRegistro) </li>
+                </ul>
+
+                <a asp-controller="home" asp-action="index">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿@model ASP.NET.Models.Alumno
+
+@{
+
+    ViewData["Title"] = "Editar Alumno";
+}
+
+<h1 class="text-center">Alumnos</h1>
+
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h3 class="text-white"<strong>Editar Alumno</strong></h3>
+            </div>
+            <div class="card-body">
+
+                <form asp-action="Editar" method="POST">
+
+                    <input type="hidden" asp-for="Id" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Nombres" class="control-label"></label>
+                        <input asp-for="Nombres" class="form-control" placeholder="Ingresa el nombre" />
+                        <span asp-validation-for="Nombres" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Apellidos" class="control-label"></label>
+                        <input asp-for="Apellidos" class="form-control" placeholder="Ingresa el apellido" />
+                        <span asp-validation-for="Apellidos" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Edad" class="control-label"></label>
+                        <input asp-for="Edad" class="form-control" placeholder="Ingresar edad" />
+                        <span asp-validation-for="Edad" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Sexo" class="control-label"></label>
+                        <input asp-for="Sexo" class="form-control" placeholder="Ingresar sexo" />
+                        <span asp-validation-for="Sexo" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-secondary d-block mx-auto">Editar alumno</button>
+                    </div>
+
+                </form>
+                <a asp-controller="home" asp-action="index">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<ASP.NET.Models.Alumno>
+
+@{
+
+    ViewData["Title"] = "Lista de Alumnos";
+}
+
+<h1 class="text-center">Alumnos</h1>
+<div class="row">
+    <div class="offset-9 col-3 mb-3">
+        <a asp-action="Crear" asp_controller="Home" 
+        class="btn btn-secondary d-block mx-auto btn-lg">Nuevo Alumno </a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="offset-12">
+        <div class="card border">
+            <div class="card-header bg-dark">
+               <h3 class="text-white"<strong>Lista Alumnos</strong></h3>
+            </div>
+            <div class="card-body">
+
+            <div class="table-responsive">
+                @if (Model.Count() > 0)
+                {
+                    <table class="table table-bordered" id="tblUsuarios" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                               
+                                <th>@Html.DisplayNameFor(m => m.Nombres)</th>
+                                <th>@Html.DisplayNameFor(m => m.Apellidos)</th>
+                                <th>@Html.DisplayNameFor(m => m.Edad)</th>
+                                <th>@Html.DisplayNameFor(m => m.Sexo)</th>
+                                <th>@Html.DisplayNameFor(m => m.FechaRegistro)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    
+                                    <td>@Html.DisplayFor(m => item.Nombres)</td>
+                                    <td>@Html.DisplayFor(m => item.Apellidos)</td>
+                                    <td>@Html.DisplayFor(m => item.Edad)</td>
+                                    <td>@Html.DisplayFor(m => item.Sexo)</td>
+                                    <td>@Html.DisplayFor(m => item.FechaRegistro)</td>
+                                    <td>
+                                        <a class="btn btn-warning" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                                        <a class="btn btn-secondary" asp-action="Detalle" asp-route-id="@item.Id">Detalle</a>
+                                        <a class="btn btn-danger" asp-action="Eliminar" asp-route-id="@item.Id">Eliminar</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+
+                    <p> No hay registros </p>
+                }
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#tblUsuarios').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay informacion",
+                    "info": "Mostrando _START: a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de MAX total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar :MENU_ Entradas",
+                    "loadingaRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+
+                    }
+
+
+                }
+            });
+        });
+    </script>
+}
